@@ -1,0 +1,49 @@
+/*!
+ *  Index page background image
+ */
+
+html,
+body,
+header,
+#cover_image {
+  height: 100%;
+}
+
+#cover_image {
+  background: url("../images/cover2.jpg")no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.view {
+  position: relative;
+  overflow: hidden;
+  cursor: default; }
+.view .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-attachment: fixed; }
+.view img{
+  position: relative;
+  display: block; }
+
+.rgba-black-strong,
+.rgba-black-strong:after {
+  background-color: rgba(0, 0, 0, 0.7); }
+
+.brand{
+  color: white;
+  font-weight: bold;
+}
+
+.title{
+  color:white;
+}

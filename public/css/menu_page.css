@@ -1,0 +1,31 @@
+.item-image{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  color: #cacaca;
+}
+
+.item-heading{
+  color: #388e3c;
+  text-transform: uppercase;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.item-price{
+  color: #ff4038;
+  font-size: large;
+}
+
+.item-description{
+  color: #757575;
+}
+
+.cart-price{
+  color: #ff4038;
+}
+
+.btn-like{
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+}
