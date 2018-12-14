@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+mix.copy('node_modules/chart.js/dist/Chart.js', 'public/js');
 
 /*
  |--------------------------------------------------------------------------

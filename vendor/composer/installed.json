@@ -1332,6 +1332,68 @@
         ]
     },
     {
+        "name": "hardevine/shoppingcart",
+        "version": "2.5.1",
+        "version_normalized": "2.5.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/hardevine/LaravelShoppingcart.git",
+            "reference": "673bc5775f860bd1b2a7b1ed16a7d4b79b4fd3dc"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/hardevine/LaravelShoppingcart/zipball/673bc5775f860bd1b2a7b1ed16a7d4b79b4fd3dc",
+            "reference": "673bc5775f860bd1b2a7b1ed16a7d4b79b4fd3dc",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/events": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*",
+            "illuminate/session": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*",
+            "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.9.0",
+            "orchestra/testbench": "~3.1",
+            "phpunit/phpunit": "~5.0|~6.0|~7.0"
+        },
+        "suggest": {
+            "gloudemans/notify": "Simple flash notifications for Laravel"
+        },
+        "time": "2018-09-19T06:04:32+00:00",
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider"
+                ],
+                "aliases": {
+                    "Cart": "Gloudemans\\Shoppingcart\\Facades\\Cart"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Gloudemans\\Shoppingcart\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Rob Gloudemans",
+                "email": "info@robgloudemans.nl"
+            }
+        ],
+        "description": "Laravel Shoppingcart",
+        "keywords": [
+            "laravel",
+            "shoppingcart"
+        ]
+    },
+    {
         "name": "jakub-onderka/php-console-color",
         "version": "v0.2",
         "version_normalized": "0.2.0.0",
@@ -5146,6 +5208,79 @@
             "assert",
             "check",
             "validate"
+        ]
+    },
+    {
+        "name": "yajra/laravel-datatables-oracle",
+        "version": "v8.13.1",
+        "version_normalized": "8.13.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yajra/laravel-datatables.git",
+            "reference": "3d7f05687069d90ca5dc3e75bf269e13eecccc76"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/3d7f05687069d90ca5dc3e75bf269e13eecccc76",
+            "reference": "3d7f05687069d90ca5dc3e75bf269e13eecccc76",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/database": "5.4.*|5.5.*|5.6.*|5.7.*",
+            "illuminate/filesystem": "5.4.*|5.5.*|5.6.*|5.7.*",
+            "illuminate/http": "5.4.*|5.5.*|5.6.*|5.7.*",
+            "illuminate/support": "5.4.*|5.5.*|5.6.*|5.7.*",
+            "illuminate/view": "5.4.*|5.5.*|5.6.*|5.7.*",
+            "php": ">=7.0"
+        },
+        "require-dev": {
+            "orchestra/testbench": "~3.5"
+        },
+        "suggest": {
+            "yajra/laravel-datatables-buttons": "Plugin for server-side exporting of dataTables.",
+            "yajra/laravel-datatables-editor": "Plugin to use DataTables Editor (requires a license).",
+            "yajra/laravel-datatables-fractal": "Plugin for server-side response using Fractal.",
+            "yajra/laravel-datatables-html": "Plugin for server-side HTML builder of dataTables."
+        },
+        "time": "2018-11-23T08:05:22+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "8.0-dev"
+            },
+            "laravel": {
+                "providers": [
+                    "Yajra\\DataTables\\DataTablesServiceProvider"
+                ],
+                "aliases": {
+                    "DataTables": "Yajra\\DataTables\\Facades\\DataTables"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Yajra\\DataTables\\": "src/"
+            },
+            "files": [
+                "src/helper.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Arjay Angeles",
+                "email": "aqangeles@gmail.com"
+            }
+        ],
+        "description": "jQuery DataTables API for Laravel 4|5",
+        "keywords": [
+            "datatables",
+            "jquery",
+            "laravel"
         ]
     }
 ]

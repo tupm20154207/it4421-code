@@ -16,6 +16,7 @@
   <script src="{{ asset('assets/js/plugins/nouislider.min.js') }}" type="text/javascript"></script>
   <script async defer src="{{ asset('https://buttons.github.io/buttons.js') }}"></script>
   <script src="{{ asset('assets/js/material-kit.js?v=2.0.4') }}" type="text/javascript"></script>
+  <script src="{{ asset('assets/js/plugins/bootstrap-notify.js') }}"></script>
 {{--  <script src="{{ asset('js/app.js') }}"></script>--}}
   @yield('page_js')
 
@@ -25,6 +26,7 @@
   <link href="{{ asset('assets/css/material-kit.css?v=2.0.4') }}" rel="stylesheet" />
 {{--  <link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
   @yield('page_css')
 
 </head>
@@ -82,10 +84,15 @@
                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                   {{ __('Đăng xuất') }}
                 </a>
-                <a class="dropdown-item" href="/info">
+                <a class="dropdown-item" href="{{ route('history') }}">
+                  {{ __('Lịch sử mua hàng') }}
+                </a>
+                <a class="dropdown-item" href="{{ route('info') }}">
                   {{ __('Thông tin cá nhân') }}
                 </a>
-
+                <a class="dropdown-item" href="{{ route('password') }}">
+                  {{ __('Đổi mật khẩu') }}
+                </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   @csrf
                 </form>
@@ -109,6 +116,26 @@
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
   });
+
+  function showNotification(message, color) {
+    $.notify(message,
+      {
+        type: color,
+        delay: 2000,
+        timer: 1000,
+        placement: {
+          from: 'top',
+          align: 'right'
+        }
+      },
+      {
+        animate: {
+          enter: 'animated fadeInRight',
+          exit: 'animated fadeOutRight'
+        }
+      }
+    );
+  }
 </script>
 @yield('custom_script')
 </body>

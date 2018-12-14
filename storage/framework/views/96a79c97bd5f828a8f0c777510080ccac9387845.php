@@ -16,6 +16,7 @@
   <script src="<?php echo e(asset('assets/js/plugins/nouislider.min.js')); ?>" type="text/javascript"></script>
   <script async defer src="<?php echo e(asset('https://buttons.github.io/buttons.js')); ?>"></script>
   <script src="<?php echo e(asset('assets/js/material-kit.js?v=2.0.4')); ?>" type="text/javascript"></script>
+  <script src="<?php echo e(asset('assets/js/plugins/bootstrap-notify.js')); ?>"></script>
 
   <?php echo $__env->yieldContent('page_js'); ?>
 
@@ -25,6 +26,7 @@
   <link href="<?php echo e(asset('assets/css/material-kit.css?v=2.0.4')); ?>" rel="stylesheet" />
 
   <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('css/animate.css')); ?>">
   <?php echo $__env->yieldContent('page_css'); ?>
 
 </head>
@@ -85,11 +87,18 @@
                   <?php echo e(__('Đăng xuất')); ?>
 
                 </a>
-                <a class="dropdown-item" href="/info">
+                <a class="dropdown-item" href="<?php echo e(route('history')); ?>">
+                  <?php echo e(__('Lịch sử mua hàng')); ?>
+
+                </a>
+                <a class="dropdown-item" href="<?php echo e(route('info')); ?>">
                   <?php echo e(__('Thông tin cá nhân')); ?>
 
                 </a>
+                <a class="dropdown-item" href="<?php echo e(route('password')); ?>">
+                  <?php echo e(__('Đổi mật khẩu')); ?>
 
+                </a>
                 <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
                   <?php echo csrf_field(); ?>
                 </form>
@@ -113,6 +122,26 @@
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
   });
+
+  function showNotification(message, color) {
+    $.notify(message,
+      {
+        type: color,
+        delay: 2000,
+        timer: 1000,
+        placement: {
+          from: 'top',
+          align: 'right'
+        }
+      },
+      {
+        animate: {
+          enter: 'animated fadeInRight',
+          exit: 'animated fadeOutRight'
+        }
+      }
+    );
+  }
 </script>
 <?php echo $__env->yieldContent('custom_script'); ?>
 </body>

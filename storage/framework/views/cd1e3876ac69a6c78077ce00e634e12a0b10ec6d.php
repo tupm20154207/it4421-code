@@ -41,7 +41,7 @@
   <!--  Google Maps Plugin    -->
   
   <!-- Chartist JS -->
-  <script src=" <?php echo e(asset('assets/js/plugins/chartist.min.js')); ?>"></script>
+
   <!--  Notifications Plugin    -->
   <script src=" <?php echo e(asset('assets/js/plugins/bootstrap-notify.js')); ?>"></script>
   <script src=" <?php echo e(asset('assets/js/plugins/bootstrap-datetimepicker.js')); ?>"></script>
@@ -53,7 +53,6 @@
   <link rel="stylesheet" type="text/css" href="<?php echo e(asset('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons')); ?>" />
   <link rel="stylesheet" href="<?php echo e(asset('https://use.fontawesome.com/releases/v5.5.0/css/all.css')); ?>" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="<?php echo e(asset('assets/css/jquery.dataTables.min.css')); ?>">
-
   <link href="<?php echo e(asset('assets/css/material-dashboard.css?v=2.1.1')); ?>" rel="stylesheet" />
   <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
 
@@ -138,6 +137,11 @@
   </div>
 </div>
 <script>
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
   $(document).ready(function() {
     $().ready(function() {
       $sidebar = $('.sidebar');
@@ -304,32 +308,6 @@
           clearInterval(simulateWindowResize);
         }, 1000);
 
-      });
-      $('.table-datatable').DataTable({
-        "language": {
-          "decimal": "",
-          "emptyTable": "No data available in table",
-          "info": "Trang _PAGE_ trên tổng số _PAGES_ trang",
-          "infoEmpty": "Trang 0 trên tổng số 0 trang",
-          "infoFiltered": "(Lọc từ _MAX_ bản ghi)",
-          "infoPostFix": "",
-          "thousands": ",",
-          "lengthMenu": "Số dòng hiển thị trên bảng: _MENU_",
-          "loadingRecords": "Đang tải...",
-          "processing": "Đang xử lý...",
-          "search": "Tìm kiếm:",
-          "zeroRecords": "Không thấy kết quả",
-          "paginate": {
-            "first": "Trang đầu",
-            "last": "Trang cuối",
-            "next": "Trang tiếp",
-            "previous": "Trang trước"
-          },
-          "aria": {
-            "sortAscending": ": Sắp xếp cột theo chiều tăng dần",
-            "sortDescending": ": Sắp xếp cột theo chiều giảm dần"
-          }
-        }
       });
     });
   });

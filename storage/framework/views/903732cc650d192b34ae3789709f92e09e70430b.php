@@ -7,29 +7,7 @@
 <?php $__env->startSection('navbar_class', 'navbar-dark bg-primary'); ?>
 <?php $__env->startSection('cover', ''); ?>
 <?php $__env->startSection('content'); ?>
-  <div id="accordion">
-
-    <div class="card">
-      <div id="collapseOne" class="collapse show" data-parent="#accordion">
-        <div class="card-body">
-          Lorem ipsum..
-        </div>
-      </div>
-    </div>
-    <div>
-      <a class="btn btn-primary text-center mb-0" id="click_link" data-toggle="collapse" data-target="#collapseOne">CART</a>
-    </div>
-    <div>
-      <a class="btn btn-primary text-center mb-0" id="click_button" data-toggle="collapse" data-target="#collapseTwo">ORDER</a>
-    </div>
-    <div class="card">
-      <div id="collapseTwo" class="collapse" data-parent="#accordion">
-        <div class="card-body">
-          Lorem ipsum..
-        </div>
-      </div>
-    </div>
-  </div>
+  Contact
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('custom_script'); ?>
   <script>

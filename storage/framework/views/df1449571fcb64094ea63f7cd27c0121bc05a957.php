@@ -18,18 +18,20 @@
                 <button class="btn btn-primary btn-md mr-3 btn-details">Thêm vào giỏ hàng</button>
 
                 <?php if(Auth::user()->likes()->where('product_id', $product->id)->first() != null): ?>
-                  <a class="btn btn-white btn-md text-rose btn-like item-like clicked">
-                    <i class="material-icons">favorite</i> Đã thích
+                  <a class="btn btn-outline-danger btn-md text-rose btn-like item-like clicked">
+                    <i class="material-icons">favorite</i> &times; <?php echo e($product->likes()->count()); ?>
+
                   </a>
                 <?php else: ?>
-                  <a class="btn btn-white btn-md text-rose btn-like item-like">
-                    <i class="material-icons">favorite_border</i> Thích
+                  <a class="btn btn-outline-danger btn-md text-rose btn-like item-like">
+                    <i class="material-icons">favorite_border</i> &times; <?php echo e($product->likes()->count()); ?>
+
                   </a>
                 <?php endif; ?>
 
               <?php else: ?>
                 <a href="<?php echo e(route('login')); ?>" class="btn btn-primary btn-md mr-3" onclick="login_required()">Thêm vào giỏ hàng</a>
-                <a href="<?php echo e(route('login')); ?>" class="btn btn-white btn-md text-rose btn-like" onclick="login_required()"><i class="material-icons">favorite_border</i> Thích</a>
+                <a href="<?php echo e(route('login')); ?>" class="btn btn-outline-danger btn-md text-rose btn-like" onclick="login_required()"><i class="material-icons">favorite_border</i> &times; <?php echo e($product->likes()->count()); ?></a>
               <?php endif; ?>
             </div>
           </div>
@@ -39,7 +41,7 @@
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </div>
   <div class="row justify-content-center">
-    <div>
+    <div class="mt-3">
       <?php echo $products->links(); ?>
 
     </div>

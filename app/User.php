@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
   use Notifiable;
+  use SoftDeletes;
 
   /**
    * The attributes that are mass assignable.
@@ -17,7 +19,7 @@ class User extends Authenticatable
   protected $fillable = [
       'fullname', 'email', 'password', 'phone', 'username', 'role'
   ];
-
+  protected $dates = ['deleted_at'];
   public $timestamps = false;
   /**
    * The attributes that should be hidden for arrays.
@@ -28,9 +30,9 @@ class User extends Authenticatable
       'password', 'remember_token',
   ];
 
-  public function lock_state()
+  public function lock()
   {
-    return $this->hasOne('App\LockState', 'user_id', 'id');
+    return $this->hasOne('App\Lock', 'user_id', 'id');
   }
 
   public function orders()

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('navbar_class', 'navbar-dark bg-dark')
+@section('navbar_class', 'navbar-dark bg-primary')
 @section('content')
   <div class="container pt-5 mt-3">
     <div class="row justify-content-center">

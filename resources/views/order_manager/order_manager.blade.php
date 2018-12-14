@@ -29,24 +29,14 @@
               <tr>
                 <th>Mã đơn hàng</th>
                 <th>Tài khoản</th>
-                <th>Thời gian</th>
+                <th>Cập nhật lúc</th>
                 <th>Trạng thái</th>
-                <th>Tổng giá trị</th>
+                <th class="text-right">Tổng giá trị</th>
                 <th></th>
               </tr>
               </thead>
               <tbody>
-              <tr>
-                <td>123</td>
-                <td>dakrice</td>
-                <td>12/12/12</td>
-                <td><span class="order-badge order-finished">Hoàn tất</span></td>
-                <td>1,250.00</td>
-                <td>
-                  <a href="#" class="text-success" data-toggle="modal" data-target="#details_modal"><i
-                        class="fa fa-info-circle fa-lg"></i> Xem chi tiết ...</a>
-                </td>
-              </tr>
+              {{-- Datatable content --}}
               </tbody>
             </table>
           </div>
@@ -54,105 +44,29 @@
       </div>
     </div>
   </div>
+
+
   <div id="details_modal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="order_title">
-            Chi tiết đơn hàng
-          </h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body pb-0">
-          <form action="#">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="card">
-                    <div class="card-body p-0">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-md-4 py-lg-3 py-sm-1">
-                            <span class="text-primary mb-2">Tài khoản đặt hàng:</span>
-                            <span><br>dakrice</span>
-                          </div>
-                          <div class="col-md-4 py-lg-3 py-sm-1">
-                            <span class="text-primary mb-2">Thời điểm tạo đơn hàng:</span>
-                            <span><br>12/12/2018 12:58 PM</span>
-                          </div>
-                          <div class="col-md-4 py-lg-3 py-sm-1">
-                            <span class="text-primary mb-2">Trạng thái đơn hàng:</span>
-                            <span class="order-badge order-finished"><br>Hoàn tất</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 col-sm-12">
-                  <div class="card">
-                    <div class="card-body" style="max-height: 320px;">
-                      <table class="table" style="width: 100%">
-                        <colgroup>
-                          <col style="width: 40%">
-                          <col style="width: 30%">
-                          <col style="width: 30%">
-                        </colgroup>
-                        <thead>
-                        <tr>
-                          <th class="text-primary" style="font-size: 15px;">Tên sản phẩm</th>
-                          <th class="text-primary text-right" style="font-size: 15px;">Số lượng</th>
-                          <th  class="text-primary text-right" style="font-size: 15px;">Thành tiền</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                          <td>Gói mì hảo hảo</td>
-                          <td class="text-right">3</td>
-                          <td class="text-right">$15</td>
-                        </tr>
-                        <tr>
-                          <td colspan="2" class="text-success"><b>Tổng tiền</b></td>
-                          <td class="text-right">$555</td>
-                        </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 col-sm-12">
-                  <div class="card">
-                    <div class="card-body">
-                      <div class="container-fluid">
-                        <div class="row py-3">
-                          <div class="col-sm-6 text-primary">Tên người nhận:</div>
-                          <div class="col-sm-6">tu pham</div>
-                        </div>
-                        <div class="row py-3">
-                          <div class="col-sm-6 text-primary">SĐT người nhận:</div>
-                          <div class="col-sm-6">012123123</div>
-                        </div>
-                        <div class="row py-3">
-                          <div class="col-sm-6 text-primary">Địa chỉ giao hàng:</div>
-                          <div class="col-sm-6">01 Đại Cồ Việt</div>
-                        </div>
-                        <div class="row py-3">
-                          <div class="col-sm-6 text-primary">Thời gian giao hàng:</div>
-                          <div class="col-sm-6">12/12/2018 12:12 PM</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <a class="btn btn-secondary close d-block" data-dismiss="modal">Hủy</a>
-        </div>
+        <form action="#">
+          @csrf
+          <div class="modal-header">
+            <h4 class="modal-title" id="order_title">
+              Chi tiết đơn hàng
+            </h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body pb-0" id="details_modal_content">
+            {{-- Content here --}}
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="btn btn-info" id="deliver_button">Giao hàng</a>
+            <a href="#" class="btn btn-primary" id="finish_button">Hoàn tất</a>
+            <a href="#" class="btn btn-danger" id="cancel_button">Hủy đơn hàng</a>
+            <a class="btn btn-secondary close d-block" data-dismiss="modal">Đóng</a>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -160,8 +74,109 @@
 @section('custom_script')
   <script>
     $(document).ready(function () {
+      let table = $('.table-datatable').DataTable({
+        "ajax": "{!! route('order_manager.load_table') !!}",
+        "columnDefs": [
+          {
+            targets: [4],
+            className: 'dt-right'
+          },
+          {
+            targets: [5],
+            className: 'dt-center'
+          }
+        ],
+        "language": {
+          "decimal": "",
+          "emptyTable": "Không có dữ liệu",
+          "info": "Trang _PAGE_ trên tổng số _PAGES_ trang",
+          "infoEmpty": "Trang 0 trên tổng số 0 trang",
+          "infoFiltered": "(Lọc từ _MAX_ bản ghi)",
+          "infoPostFix": "",
+          "thousands": ",",
+          "lengthMenu": "Số dòng hiển thị trên bảng: _MENU_",
+          "loadingRecords": "Đang tải...",
+          "processing": "Đang xử lý...",
+          "search": "Tìm kiếm:",
+          "zeroRecords": "Không thấy kết quả",
+          "paginate": {
+            "first": "Trang đầu",
+            "last": "Trang cuối",
+            "next": "Trang tiếp",
+            "previous": "Trang trước"
+          },
+          "aria": {
+            "sortAscending": ": Sắp xếp cột theo chiều tăng dần",
+            "sortDescending": ": Sắp xếp cột theo chiều giảm dần"
+          }
+        },
+        "ordering": false
+      });
 
+      setInterval( function () {
+        table.ajax.reload();
+      }, 5000 );
+
+      $(document).on('click', 'a[data-target="#details_modal"]', function () {
+        let id = $(this).parents('tr').find('td:first').text();
+        $.post('{{ route('order_manager.details') }}',
+          {
+            id: id
+          }, function (data) {
+            $('#details_modal_content').html(data.content);
+            switch(data.state) {
+              case 'pending':
+                $('#finish_button').hide();
+                break;
+              case 'delivering':
+                $('#deliver_button').hide();
+                break;
+              default:
+                $('#finish_button').hide();
+                $('#deliver_button').hide();
+                $('#cancel_button').hide();
+            }
+          })
+      });
+
+      $('#details_modal').on('hidden.bs.modal', function () {
+        $('#finish_button').show();
+        $('#deliver_button').show();
+        $('#cancel_button').show();
+      });
+
+      $(document).on('click', '#deliver_button', function () {
+        let id = $('#details_modal').find('input[name="id"]').val();
+        if (confirm('Xác nhận giao hàng?')){
+          $.post('{{ route("order_manager.deliver") }}', {id: id}, function () {
+            $('#details_modal').modal("hide");
+            table.ajax.reload();
+            md.showNotification('Đang giao hàng cho đơn ' + id, 'info');
+          });
+        }
+      });
+
+      $(document).on('click', '#cancel_button', function () {
+        let id = $('#details_modal').find('input[name="id"]').val();
+        if (confirm('Xác nhận hủy đơn hàng?')){
+          $.post('{{ route("order_manager.cancel") }}', {id: id}, function () {
+            $('#details_modal').modal("hide");
+            table.ajax.reload();
+            md.showNotification('Đã hủy đơn hàng ' + id, 'danger');
+          });
+        }
+      });
+
+      $(document).on('click', '#finish_button', function () {
+        let id = $('#details_modal').find('input[name="id"]').val();
+        if (confirm('Xác nhận hoàn tất đơn hàng?')){
+          $.post('{{ route("order_manager.finish") }}', {id: id}, function () {
+            $('#details_modal').modal("hide");
+            table.ajax.reload();
+            md.showNotification('Đã hoàn tất đơn hàng ' + id, 'success');
+          });
+        }
+      });
     });
-
   </script>
 @endsection

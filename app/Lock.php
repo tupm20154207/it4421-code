@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class LockState extends Model
+class Lock extends Model
 {
   public $timestamps = false;
   public function user()
